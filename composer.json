@@ -1,6 +1,6 @@
 {
     "name": "tree6bee/queue",
-    "description": "the ctx support library",
+    "description": "a job queue",
     "keywords": ["ctx", "queue", "context", "tree6bee"],
     "license": "MIT",
 
