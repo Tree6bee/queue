@@ -12,13 +12,19 @@ class Worker
     protected $queue;
 
     /**
+     * @var string 需要处理的 queue
+     */
+    protected $queueTube;
+
+    /**
      * Create a new queue worker.
      *
      * @param Queue $queue
      */
-    public function __construct(Queue $queue)
+    public function __construct(Queue $queue, $queueTube = '')
     {
         $this->queue = $queue;
+        $this->queueTube = $queueTube;
     }
 
     /**
@@ -44,7 +50,7 @@ class Worker
 
     public function runNextJob()
     {
-        $job = $this->queue->pop();
+        $job = $this->queue->pop($this->queueTube);
 
         if ($job) {
             $payload = json_decode($job->getRawBody(), true);
@@ -125,6 +131,6 @@ class Worker
 
     protected function stop()
     {
-        die;
+        throw new \Exception('队列 worker 内存超过设定阈值, queue: ' . $this->queueTube);
     }
 }

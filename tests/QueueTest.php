@@ -3,7 +3,6 @@
 namespace Tests\Tree6bee\Queue;
 
 use Tree6bee\Queue\Drivers\Beanstalkd;
-use Tree6bee\Queue\Job;
 use Tree6bee\Queue\Queue;
 use Tree6bee\Queue\Worker;
 
