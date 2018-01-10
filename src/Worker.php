@@ -35,6 +35,7 @@ class Worker
      */
     public function daemon($sleep = 60, $memoryLimit = 128)
     {
+        $memoryLimit = $memoryLimit * 1024 * 1024;
         $startTime = time();
         while (true) {
             $ret = $this->runNextJob();
@@ -116,7 +117,7 @@ class Worker
      */
     protected function memoryExceeded($memoryLimit)
     {
-        return (memory_get_usage() / 1024 / 1024) >= $memoryLimit;
+        return memory_get_usage() >= $memoryLimit;
     }
 
     /**
