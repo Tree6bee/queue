@@ -18,7 +18,7 @@ class Worker
 
     /**
      * Create a new queue worker.
-     * 
+     *
      * @param Queue $queue
      * @param string $queueTube
      */
@@ -93,8 +93,25 @@ class Worker
                 $job->release();
             } else { //超过了放到失败中
                 $job->bury();
+
+                $this->logProcessError($e);
             }
         }
+    }
+
+    /**
+     * 记录 job 执行失败的日志
+     * !!! 此处根据具体的框架应用进行重载来记录符合业务的日志格式
+     * !!! you can override this method to log the job processing error, etc...
+     * @param \Exception $e
+     *
+     * @return void
+     */
+    protected function logProcessError(\Exception $e)
+    {
+        echo (string) $e;
+
+        return ;
     }
 
     /**

@@ -7,6 +7,11 @@ use \Tree6bee\Queue\Drivers\Jobs\JobInterface;
 abstract class Job
 {
     /**
+     * @var string job queue name
+     */
+    public $queue = 'default';
+
+    /**
      * The "time to run" for all pushed jobs.
      *
      * @var int 允许 worker 执行的最大秒数,超时 job 将会被 release 到 ready 状态.

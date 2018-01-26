@@ -27,14 +27,13 @@ class Queue
      * Push a new job onto the queue.
      *
      * @param  Job  $job
-     * @param  string  $queue
      *
      * @return mixed
      */
-    public function push(Job $job, $queue = '')
+    public function push(Job $job)
     {
         return $this->driver->push(
-            $this->getQueue($queue),
+            $job->queue,
             $this->createPayload($job),
             $job->retry_after
         );
@@ -45,14 +44,13 @@ class Queue
      *
      * @param  \DateTime|int  $delay
      * @param  Job  $job
-     * @param  string  $queue
      * @return mixed
      */
-    public function later($delay, Job $job, $queue = '')
+    public function later($delay, Job $job)
     {
         return $this->driver->later(
             $delay,
-            $this->getQueue($queue),
+            $job->queue,
             $this->createPayload($job),
             $job->retry_after
         );
@@ -66,16 +64,6 @@ class Queue
     public function pop($queue = '')
     {
         return $this->driver->pop($this->getQueue($queue));
-    }
-
-    /**
-     * release job
-     *
-     * @param $job
-     */
-    public function release($job)
-    {
-        return $this->driver->release($job);
     }
 
     /**

@@ -22,6 +22,6 @@ class ExampleJob extends Job
 
         var_dump($this->retry_after, $this->tries);
 
-        throw new \Exception('handle job...lol ^_^');
+        // throw new \Exception('handle job...lol ^_^');
     }
 }
