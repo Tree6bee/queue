@@ -4,7 +4,7 @@ namespace Tree6bee\Queue\Drivers\Jobs;
 
 use Pheanstalk\PheanstalkInterface;
 
-interface Job
+interface JobInterface
 {
     /**
      * Get the raw body string for the job.

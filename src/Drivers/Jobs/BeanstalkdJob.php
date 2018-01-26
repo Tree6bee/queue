@@ -5,7 +5,7 @@ namespace Tree6bee\Queue\Drivers\Jobs;
 use Pheanstalk\PheanstalkInterface;
 use Pheanstalk\Job as PheanstalkJob;
 
-class BeanstalkdJob implements Job
+class BeanstalkdJob implements JobInterface
 {
     /**
      * @var PheanstalkInterface

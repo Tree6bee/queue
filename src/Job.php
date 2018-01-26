@@ -2,7 +2,7 @@
 
 namespace Tree6bee\Queue;
 
-use \Tree6bee\Queue\Drivers\Jobs\Job as JobInterface;
+use \Tree6bee\Queue\Drivers\Jobs\JobInterface;
 
 abstract class Job
 {
