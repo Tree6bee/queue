@@ -18,8 +18,9 @@ class Worker
 
     /**
      * Create a new queue worker.
-     *
+     * 
      * @param Queue $queue
+     * @param string $queueTube
      */
     public function __construct(Queue $queue, $queueTube = '')
     {
