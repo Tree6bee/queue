@@ -139,7 +139,8 @@ the queue package can work on other queue system, you should implements these in
 
 ### Link
 
-* [beanstalkd protocol](https://github.com/kr/beanstalkd/blob/master/doc/protocol.txt) [beanstalkd协议](https://github.com/kr/beanstalkd/blob/master/doc/protocol.zh-CN.md)
+* [beanstalkd protocol](https://github.com/kr/beanstalkd/blob/master/doc/protocol.txt) 
+* [beanstalkd协议](https://github.com/kr/beanstalkd/blob/master/doc/protocol.zh-CN.md)
 
 ### Todo
 
