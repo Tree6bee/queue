@@ -61,7 +61,7 @@ class Queue
     /**
      * @param string $queue
      *
-     * @return null|\Tree6bee\Queue\Drivers\Jobs\Job
+     * @return null|\Tree6bee\Queue\Drivers\Jobs\JobInterface
      */
     public function pop($queue = '')
     {
