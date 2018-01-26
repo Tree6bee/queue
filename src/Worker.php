@@ -85,7 +85,9 @@ class Worker
     protected function process(JobInterface $job, Job $obj)
     {
         try {
-            $this->handleWithObj($job, $obj->setJob($job));
+            $obj->setJob($job);
+
+            $this->handleWithObj($obj);
 
             $job->delete();
         } catch (\Exception $e) {
@@ -118,10 +120,9 @@ class Worker
      * !!! 此处根据具体的框架应用进行重载，方便注入框架的服务对象等
      * !!! you can override this method, so that the application job can init with more obj, etc...
      *
-     * @param JobInterface $job 队列里的每个 job 对象 the base queue job instance.
      * @param Job $obj job 中反序列化后具体的实例对象 应用开发者定义的 application job
      */
-    protected function handleWithObj(JobInterface $job, Job $obj)
+    protected function handleWithObj(Job $obj)
     {
         //override like: $obj->setApp($app);
         $obj->handle();
