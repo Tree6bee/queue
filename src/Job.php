@@ -12,7 +12,7 @@ abstract class Job
     public $queue = 'default';
 
     /**
-     * The "time to run" for all pushed jobs.
+     * The "time to run" for all pushed jobs. (timeout)
      *
      * @var int 允许 worker 执行的最大秒数,超时 job 将会被 release 到 ready 状态.
      */
