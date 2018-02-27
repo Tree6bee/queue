@@ -14,7 +14,10 @@ abstract class Job
     /**
      * The "time to run" for all pushed jobs. (timeout)
      *
-     * @var int 允许 worker 执行的最大秒数,超时 job 将会被 release 到 ready 状态.
+     * @var int 允许 worker 执行单个任务的最大秒数,超时 job 将会被 release 到 ready 状态.
+     *
+     * @todo 目前此处有bug，如果是单个worker消费不会存在，因为依然会删除超时的job
+     *          但是如果有多个worker同时消费队列，则会被多次获取到...
      */
     public $retry_after = 60;
 
