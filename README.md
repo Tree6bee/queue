@@ -1,5 +1,6 @@
 # queue
-A job queue based on beanstalkd(and other queue system), easy to dispatch job and handle job.
+
+A job queue (like laravel queue) based on beanstalkd(and other queue system), easy to dispatch job and handle job.
 
 ### Keywords
 
